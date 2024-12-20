@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELUXE CARS</title>
+    <link rel="stylesheet" href="/productos.web/productos.css">
+</head>
+<body>
+     <!-- Navigation -->
+     <h2>DELUXE CARS</h2>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex facere voluptas, quasi amet doloremque tenetur beatae quia eaque impedit consectetur culpa quis tempora delectus necessitatibus eos odit nulla ratione exercitationem.</p>
+     <div id="myBtnContainer">
+       <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+       <button class="btn" onclick="filterSelection('BMW')">BMW</button>
+       <button class="btn" onclick="filterSelection('LAMBORGUINI')">LAMBORGUINI</button>
+       <button class="btn" onclick="filterSelection('FERRARI')">FERRARI</button>
+     </div>
+     <!-- Portfolio Gallery Grid -->
+<div class="row">
+    <div class="column BMW">
+      <div class="content">
+        <img src="/arrets/image/carros/bmw-46.jpg" alt="BMW-Cars" style="width:100%" class="bmw-46">
+        <h4>BMW 46</h4>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+
+    <div class="column BMW">
+      <div class="content">
+        <img src="/arrets/image/carros/bmw-i8.jpg" alt="BMW-Cars" style="width:100%">
+        <h4>BMW i8</h4>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+
+    <div class="column BMW">
+      <div class="content">
+        <img src="/arrets/image/carros/bmw-m3-e30.webp" alt="BMW-Cars" style="width:100%">
+        <h4>BMW 30</h4>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+  
+    <div class="column LAMBORGUINI">
+      <div class="content">
+        <img src="/arrets/image/carros/diablo.webp" alt="LAMBORGUINI-Cars" style="width:100%">
+        <h4>LAMBORGUINI DIABLO</h4>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+
+    <div class="column LAMBORGUINI">
+      <div class="content">
+        <img src="/arrets/image/carros/huracan.jpeg" alt="LAMBORGUINI-Cars" style="width:100%" class="huracan">
+        <h4>LAMBORGUINI AVENTADOR</h4>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+
+    <div class="column LAMBORGUINI">
+      <div class="content">
+        <img src="/arrets/image/carros/lamboo mura.jpg" alt="LAMBORGUINI-Cars" style="width:100%" class="mura">
+        <h4>LAMBORGUINI MIURA</h4>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+  
+    <div class="column FERRARI">
+      <div class="content">
+        <img src="/arrets/image/carros/ferrari 166.webp" alt="FERRARI-Cars" style="width:100%">
+        <h4>FERRARI 166</h4>
+       <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+    <div class="column FERRARI">
+      <div class="content">
+        <img src="/arrets/image/carros/ferrari enzo.jpeg" alt="FERRARI-Cars" style="width:100%">
+        <h4>FERRARI ENZO</h4>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+    <div class="column FERRARI">
+      <div class="content">
+        <img src="/arrets/image/carros/ferrari458.jpg" alt="FERRARI-Cars" style="width:100%" class="ferra-458">
+        <h4>FERRARI 458</h4>
+        <p class="FERRARI-458">Lorem ipsum dolor..</p>
+      </div>
+    </div>
+  <!-- END GRID -->
+  </div>
+
+  <script>
+    filterSelection("all") // Execute the function and show all columns
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+
+  </script>
+
+ 
+    
+</body>
+</html>
